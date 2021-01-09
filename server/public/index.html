@@ -9,16 +9,16 @@
   <link rel="stylesheet" href="./vendors/bootstrap.css">
   <link rel="stylesheet" href="./styles/style.css">
 </head>
-<body>
-  <header class="header">
+<body >
+  <header class="toast-header">
     <h1>ToDo App</h1>
   </header>
   <main class="container">
     <!-- input field  -->
-    <section> 
+    <section class="form-field">
       <label>Add New Task</label>
-      <input type="text" name="name" id="nameIn" placeholder="put your new item here">
-      <button class="btn btnSubmit btn-dark">Add Task</button>
+      <input class="nameIn" type="text" name="name" id="nameIn" placeholder="put your new item here">
+      <button class="btn btnSubmit btn-dark">Add Task</button>    
     </section>
     <!-- Todo List Output Field -->
     <section>
@@ -34,18 +34,27 @@
             </tr>
           </thead>
           <tbody id="todoList">
-            <!-- <td><button>DONE</button></td>
-            <td>Vacuum the living room</td>
-            <td><button>DEL</button></td> -->
-            <!-- <td><input type="checkbox" name="completeStatus" id="completeStatus"></td> -->
-          </tbody>
+            <tr>
+              <td><input type="checkbox" name="completeStatus" id="completeStatus"></td>
+              <td>Vacuum the living room</td>
+              <td><button>DEL</button></td> 
+            </tr>
+            <tr>
+              <td><input type="checkbox" name="completeStatus" id="completeStatus"></td>
+              <td>Cooking</td>
+              <td><button>DEL</button></td> 
+            </tr>
+            <tr>
+              <td><input type="checkbox" name="completeStatus" id="completeStatus"></td>
+              <td>Cleaning</td>
+              <td><button>DEL</button></td> 
+            </tr>
+             
+          </tbody> 
         </table>
       </div>
     </section>
     <!-- footer? -->
   </main>
-  <div>
-    <input type="checkbox" name="check" id="check" checked>
-  </div>
 </body>
 </html>

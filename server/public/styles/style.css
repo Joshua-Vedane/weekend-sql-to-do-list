@@ -4,3 +4,20 @@ thead * { margin: 0; padding: 0; border: 0 none; height: 0px; }
 from https://stackoverflow.com/questions/40979544/hide-thead-but-keep-its-cells-width-in-tbody
 */
 
+.toast-header{
+  border: 2px solid black;
+  justify-content: center;
+}
+
+.container {
+  border: 2px solid red;
+}
+/* 
+.form-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid black;
+  padding: 1rem 0;
+} */
+
