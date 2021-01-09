@@ -1,0 +1,17 @@
+# OSX files
+.DS_Store
+
+# lock file
+package-lock.json
+
+#Node Modules
+node_modules/
+
+#logs
+logs
+*.logsnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+## notes
+notes.md
