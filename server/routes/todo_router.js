@@ -36,7 +36,15 @@ router.post('/', (req, res) => {
 router.delete('/:id', (req, res) => {
   let id = req.params.id;
   console.log('delete route called with id of:', id);
-})
+  const queryText = `DELETE FROM "todos" WHERE "id" = $1;`;
+  pool.query(queryText, [id])
+  .then((result) => {
+    res.sendStatus(204);
+  }).catch((error) => {
+    console.log('ERROR Deleting Todo' , error);
+    res.sendStatus(500);
+  })
+});
 
 
 //PUT ROUTE
