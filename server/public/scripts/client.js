@@ -9,6 +9,7 @@ function handleReady(){
 //CLICK LISTENERS
 function addClickListeners(){
   $('.btnSubmit').on('click', handleSubmit);
+  $('#todoList').on('click', '.deleteBtn', handleDelete);
   // delete listener
   // put listener
 }
@@ -53,6 +54,20 @@ function addTodo(todoToAdd){
 };
 
 //DELETE TODO FROM SERVER
+function handleDelete(){
+  // console.log('clicked delete');
+  const id = $(this).closest('tr').data('id');
+  // console.log(id);
+  $.ajax({
+    type: 'DELETE',
+    url: `/todos/${id}`,
+  }).then(function(response){
+    console.log(response);
+    refreshTodos();
+  }).catch(function(error){
+    alert(`error in delete`, error);
+  });
+};
 
 //PUT(CHANGE) TODO COMPLETION
 

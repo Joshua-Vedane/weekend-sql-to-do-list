@@ -33,6 +33,10 @@ router.post('/', (req, res) => {
 
 
 //DELETE ROUTE
+router.delete('/:id', (req, res) => {
+  let id = req.params.id;
+  console.log('delete route called with id of:', id);
+})
 
 
 //PUT ROUTE
