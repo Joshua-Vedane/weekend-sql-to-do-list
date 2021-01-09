@@ -48,6 +48,12 @@ router.delete('/:id', (req, res) => {
 
 
 //PUT ROUTE
+router.put('/:id', (req,res) => {
+  let id = req.params.id;
+  let todoStatus = req.body.status;
+  console.log(`updating book ${id} with, ${todoStatus}`);
+  res.sendStatus(200);
+})
 
 
 module.exports = router;

@@ -10,8 +10,8 @@ function handleReady(){
 function addClickListeners(){
   $('.btnSubmit').on('click', handleSubmit);
   $('#todoList').on('click', '.deleteBtn', handleDelete);
-  // delete listener
   // put listener
+  $('#todoList').on('click', '.completeBtn', completeStatus);
 }
 
 // get todos from server
@@ -70,6 +70,26 @@ function handleDelete(){
 };
 
 //PUT(CHANGE) TODO COMPLETION
+function completeStatus(){
+  const id = $(this).closest('tr').data('id');
+  const dataToSend = {
+    // gets boolean value of completed status. 
+    status: $(this).parent().data('complete')
+  }
+  // console.log('change btn clicked id : ', id);
+  // console.log(`change btn clicked status complete : ${dataToSend.status}`);
+  $.ajax({
+    type: 'PUT',
+    url: `/todos/${id}`,
+    data: dataToSend,
+  }).then(function(response){
+    console.log('updated');
+    refreshTodos();
+  }).catch(function(error){
+    alert('error in updating song', error);
+  });
+};
+
 
 //render todo to DOM
 function renderTodos(todos){
@@ -77,9 +97,10 @@ function renderTodos(todos){
   $('#todoList').empty();
   for (let todo of todos) {
     // if need to run condo on complete, use variable for tr and .append for each td
+      // store data-complete to keep logic in JS and off DB
     $('#todoList').append(`
     <tr data-id =${todo.id}>
-      <td><button class="completeBtn">DONE</button></td>
+      <td data-complete=${todo.complete}><button class="completeBtn">DONE</button></td>
       <td>${todo.name}</td>
       <td><button class="deleteBtn">DEL</button></td>
     `)
