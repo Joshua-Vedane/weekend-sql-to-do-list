@@ -13,5 +13,8 @@ logs
 yarn-debug.log*
 yarn-error.log*
 
-## notes
+## notes 
 notes.md
+
+## vsCode liveserver
+.vscode
