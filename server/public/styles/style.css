@@ -1,0 +1,6 @@
+/* note for making thead invisible  
+thead { opacity: 0; border: 0 none; height: 0; }
+thead * { margin: 0; padding: 0; border: 0 none; height: 0px; }
+from https://stackoverflow.com/questions/40979544/hide-thead-but-keep-its-cells-width-in-tbody
+*/
+

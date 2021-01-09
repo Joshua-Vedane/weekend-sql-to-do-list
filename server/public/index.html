@@ -10,7 +10,38 @@
   <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-  <h1>I'M ALIVE!!!!!!!!!!!!!!</h1>
+  <header class="header">
+    <h1>ToDo App</h1>
+  </header>
+  <main class="container">
+    <!-- input field  -->
+    <section> 
+      <label>Add New Task</label>
+      <input type="text" name="name" id="name-in" placeholder="put your new item here">
+      <button class="btn btn-submit">Add Task</button>
+    </section>
+    <!-- Todo List Output Field -->
+    <section>
+      <!-- not sure i need this div... -->
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>complete</th>
+              <th>name</th>
+              <th>delete</th>
+            </tr>
+          </thead>
+          <tbody id="todoList">
+            <td><button>DONE</button></td>
+            <td>Vacuum the living room</td>
+            <td><button>DEL</button></td>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <!-- footer? -->
+  </main>
   
 </body>
 </html>
