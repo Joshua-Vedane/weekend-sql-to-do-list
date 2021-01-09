@@ -11,7 +11,7 @@ function addClickListeners(){
   $('.btnSubmit').on('click', handleSubmit);
   $('#todoList').on('click', '.deleteBtn', handleDelete);
   // put listener
-  $('#todoList').on('click', '.completeBtn', completeStatus);
+  $('#todoList').on('click', '#completeStatus', completeStatus);
 }
 
 // get todos from server
@@ -98,12 +98,17 @@ function renderTodos(todos){
   for (let todo of todos) {
     // if need to run condo on complete, use variable for tr and .append for each td
       // store data-complete to keep logic in JS and off DB
-    $('#todoList').append(`
-    <tr data-id =${todo.id}>
-      <td data-complete=${todo.complete}><button class="completeBtn">DONE</button></td>
-      <td>${todo.name}</td>
-      <td><button class="deleteBtn">DEL</button></td>
-    `)
+    let $tr = $(`<tr data-id=${todo.id}></td>`)
+
+    //keep checked if true 
+    if(todo.complete === true){
+      $tr.append(`<td data-complete=${todo.complete}><input type="checkbox" name="completeStatus" id="completeStatus" checked ></td>`);
+    }else {
+      $tr.append(`<td data-complete=${todo.complete}><input type="checkbox" name="completeStatus" id="completeStatus"></td>`);
+    };
+    $tr.append(`<td>${todo.name}</td>`);
+    $tr.append(`<td><button class="deleteBtn">DEL</button></td>`);
+    $('#todoList').append($tr);
   }
 
 }
