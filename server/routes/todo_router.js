@@ -57,7 +57,7 @@ router.put('/:id', (req,res) => {
     todoStatus = false;
   }
   console.log(todoStatus);
-  console.log(`updating book ${id} with, ${todoStatus}`);
+  console.log(`updating todo ${id} with, ${todoStatus}`);
   
   let queryText = `UPDATE "todos"
                   SET "complete" = $1
