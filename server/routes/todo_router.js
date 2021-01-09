@@ -6,7 +6,7 @@ const pool = require('../modules/pool');
 //GET ROUTE
 router.get('/', (req, res) => {
   console.log('GET req to /todos');
-  let queryText = 'SELECT * FROM "todos";';
+  let queryText = 'SELECT * FROM "todos" ORDER BY "id";';
   pool.query(queryText).then(result => {
     console.log(result);
     res.send(result.rows);
@@ -46,14 +46,30 @@ router.delete('/:id', (req, res) => {
   })
 });
 
-
 //PUT ROUTE
 router.put('/:id', (req,res) => {
   let id = req.params.id;
-  let todoStatus = req.body.status;
+  let todoStatus;
+  //this allows statusBtn to toggle.
+  if(req.body.status === 'false'){
+    todoStatus = true;
+  }else{
+    todoStatus = false;
+  }
+  console.log(todoStatus);
   console.log(`updating book ${id} with, ${todoStatus}`);
-  res.sendStatus(200);
-})
+  
+  let queryText = `UPDATE "todos"
+                  SET "complete" = $1
+                  WHERE "id" = $2;`;
+  pool.query(queryText, [todoStatus, id])
+    .then((result) => {
+      res.sendStatus(200);
+    }).catch((error) => {
+      console.log('ERROR changing complete status', error);
+      res.sendStatus(500);
+    });
+});
 
 
 module.exports = router;

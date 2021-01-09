@@ -76,8 +76,8 @@ function completeStatus(){
     // gets boolean value of completed status. 
     status: $(this).parent().data('complete')
   }
-  // console.log('change btn clicked id : ', id);
-  // console.log(`change btn clicked status complete : ${dataToSend.status}`);
+  console.log('change btn clicked id : ', id);
+  console.log(`change btn clicked status complete : ${dataToSend.status}`);
   $.ajax({
     type: 'PUT',
     url: `/todos/${id}`,
