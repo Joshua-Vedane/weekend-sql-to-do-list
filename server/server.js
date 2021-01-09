@@ -6,7 +6,7 @@ const app = express();
 app.use(bodyParser.urlencoded({extended:true}));
 
 //routes 
-app.use('/todo', todoRouter);
+app.use('/todos', todoRouter);
 
 //server static 
 app.use(express.static('server/public'));

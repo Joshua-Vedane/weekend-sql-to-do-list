@@ -9,7 +9,7 @@ function handleReady(){
 function refreshTodos() {
   $.ajax({
     type: 'GET',
-    url: '/todo'
+    url: '/todos'
   }).then(function(response){
     console.log('in refreshTodos',response);
     //send data to render function
