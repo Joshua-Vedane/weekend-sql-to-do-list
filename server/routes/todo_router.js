@@ -5,7 +5,7 @@ const pool = require('../modules/pool');
 
 //GET ROUTE
 router.get('/', (req, res) => {
-  console.log('GET req to /todo');
+  console.log('GET req to /todos');
   let queryText = 'SELECT * FROM "todos";';
   pool.query(queryText).then(result => {
     console.log(result);
@@ -17,6 +17,19 @@ router.get('/', (req, res) => {
 });
 
 //POST ROUTE
+router.post('/', (req, res) => {
+  let newTodo = req.body
+  console.log('POST req to /todos');
+  let queryText = `INSERT INTO "todos" ("name")
+                   VALUES ($1); `;
+  pool.query(queryText, [newTodo.name])
+    .then(result => {
+      res.sendStatus(201);
+    }).catch(error => {
+      console.log(`ERROR adding new todo`, error);
+      res.sendStatus(500);
+    });
+});
 
 
 //DELETE ROUTE

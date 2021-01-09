@@ -2,7 +2,15 @@ $(document).ready(handleReady);
 
 function handleReady(){
   console.log('jQuery ');
+  addClickListeners();
   refreshTodos();
+}
+
+//CLICK LISTENERS
+function addClickListeners(){
+  $('.btnSubmit').on('click', handleSubmit);
+  // delete listener
+  // put listener
 }
 
 // get todos from server
@@ -19,7 +27,30 @@ function refreshTodos() {
   });
 }
 
+//submit click, package data for POST
+function handleSubmit(){
+  // console.log('clicked submit');
+  let todo = {};
+  todo.name = $('#nameIn').val();
+  addTodo(todo);
+}
+
 //POST NEW TODO TO SERVER
+function addTodo(todoToAdd){
+  // console.log(todoToAdd);
+  $.ajax({
+    type: 'POST',
+    url: '/todos',
+    data: todoToAdd,
+  }).then(function(response){
+    console.log('response from server',response);
+    //update DOM
+    refreshTodos();
+  }).catch(function(error){
+    console.log('ERROR in POST', error);
+    alert('Unable to add ToDo at this time. Please try again later');
+  });
+};
 
 //DELETE TODO FROM SERVER
 
