@@ -97,7 +97,6 @@ function completeStatus(){
   $(this).closest('tr').addClass("markComplete");
 };
 
-
 //render todo to DOM
 function renderTodos(todos){
   // console.log('in renderTodos',todos);
