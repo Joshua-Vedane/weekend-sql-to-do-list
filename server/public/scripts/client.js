@@ -8,7 +8,11 @@ function handleReady(){
 
 //CLICK LISTENERS
 function addClickListeners(){
-  $('.btnSubmit').on('click', handleSubmit);
+  // $('.btnSubmit').on('click', handleSubmit);
+  $('.btnSubmit').on('click',function(event){
+    event.preventDefault();
+    handleSubmit();
+  })
   $('#todoList').on('click', '.deleteBtn', handleDelete);
   // put listener
   $('#todoList').on('click', '#completeStatus', completeStatus);
@@ -38,6 +42,7 @@ function handleSubmit(){
 
 //POST NEW TODO TO SERVER
 function addTodo(todoToAdd){
+  
   // console.log(todoToAdd);
   $.ajax({
     type: 'POST',
@@ -102,12 +107,12 @@ function renderTodos(todos){
 
     //keep checked if true 
     if(todo.complete === true){
-      $tr.append(`<td data-complete=${todo.complete}><input type="checkbox" name="completeStatus" id="completeStatus" checked ></td>`);
+      $tr.append(`<td class="text-center" data-complete=${todo.complete}><input type="checkbox" name="completeStatus" id="completeStatus" checked ></td>`);
     }else {
-      $tr.append(`<td data-complete=${todo.complete}><input type="checkbox" name="completeStatus" id="completeStatus"></td>`);
+      $tr.append(`<td class="text-center" data-complete=${todo.complete}><input type="checkbox" name="completeStatus" id="completeStatus"></td>`);
     };
-    $tr.append(`<td>${todo.name}</td>`);
-    $tr.append(`<td><button class="deleteBtn">DEL</button></td>`);
+    $tr.append(`<td class="text-start">${todo.name}</td>`);
+    $tr.append(`<td class="text-center"><button class="btn btn-dark deleteBtn">DELETE</button></td>`);
     $('#todoList').append($tr);
   }
 

@@ -14,35 +14,43 @@
     <h1>ToDo App</h1>
   </header>
   <main class="container">
-    <!-- input field  -->
+    <!-- Form Input Field  -->
     <section class="form-field">
-      <label>Add New Task</label>
-      <input class="nameIn" type="text" name="name" id="nameIn" placeholder="put your new item here">
-      <button class="btn btnSubmit btn-dark">Add Task</button>    
+      <form class="row mt-3">
+        <div class="col-md-2 col-form-label text-center">
+          <label for="nameIn">New task to add</label>
+        </div>
+        <div class="col-md-8 mb-3 text-center">
+          <input class="form-control nameIn" type="text" name="name" id="nameIn" placeholder="put your new item here">
+        </div>
+        <div class="col-md-2 mb-3 text-center">
+          <button class="btn btnSubmit btn-dark">Add Task</button>    
+        </div>
+      </form>
     </section>
     <!-- Todo List Output Field -->
-    <section>
+    <section class="tableContainer">
       <!-- not sure i need this div... -->
       <div>
-        <table>
+        <table class="table table-striped table-hover align-middle">
           <thead>
             <tr>
-              <th>complete</th>
-              <th>name</th>
-              <th>delete</th>
+              <th class="col-2"></th>
+              <th class="col-auto"></th>
+              <th class="col-2"></th>
               <!-- <th>checker</th> -->
             </tr>
           </thead>
           <tbody id="todoList">
             <tr>
-              <td><input type="checkbox" name="completeStatus" id="completeStatus"></td>
-              <td>Vacuum the living room</td>
-              <td><button>DEL</button></td> 
+              <td class="text-center"><input type="checkbox" name="completeStatus" id="completeStatus"></td>
+              <td class="text-center">Vacuum the living room</td>
+              <td class="text-center"><button class="btn btn-dark">DELETE</button></td> 
             </tr>
             <tr>
               <td><input type="checkbox" name="completeStatus" id="completeStatus"></td>
               <td>Cooking</td>
-              <td><button>DEL</button></td> 
+              <td class="text-center"><button>DEL</button></td> 
             </tr>
             <tr>
               <td><input type="checkbox" name="completeStatus" id="completeStatus"></td>
