@@ -3,7 +3,6 @@
 body{
   font-family: 'Lora', serif;
   background-color: #424f67;
-  
 }
 
 .toast-header{
@@ -27,6 +26,10 @@ body{
   background-color: #f0f0f0;
 }
 
+.btnSubmit {
+  background-color: #6d7468;
+}
+
 .tableContainer{
   /* border: 2px solid blue ; */
   margin-bottom: 1rem;
@@ -38,8 +41,16 @@ thead { opacity: 0; border: 0 none; height: 0; }
 thead * { margin: 0; padding: 0; border: 0 none; height: 0px; }
 /* from https://stackoverflow.com/questions/40979544/hide-thead-but-keep-its-cells-width-in-tbody */
 
+.deleteBtn{
+  background-color: #962106;
+}
 
 /* completed task bg */
 .markComplete{
-  background-color: seagreen;
+  background-color: #52593c;
 }
+.markComplete > td {
+  color:#f4f4f4;
+}
+/* change color when checked */
+

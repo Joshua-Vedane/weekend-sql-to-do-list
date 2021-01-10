@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const todoRouter = require('./routes/todo_router');
 const app = express();
 
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //routes 
 app.use('/todos', todoRouter);

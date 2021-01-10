@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   console.log('GET req to /todos');
   let queryText = 'SELECT * FROM "todos" ORDER BY "id";';
   pool.query(queryText).then(result => {
-    console.log(result);
+    // console.log(result);
     res.send(result.rows);
   }).catch(error => {
     console.log('error getting todos', error);
@@ -38,27 +38,28 @@ router.delete('/:id', (req, res) => {
   console.log('delete route called with id of:', id);
   const queryText = `DELETE FROM "todos" WHERE "id" = $1;`;
   pool.query(queryText, [id])
-  .then((result) => {
-    res.sendStatus(204);
-  }).catch((error) => {
-    console.log('ERROR Deleting Todo' , error);
-    res.sendStatus(500);
-  })
+    .then((result) => {
+      res.sendStatus(204);
+    }).catch((error) => {
+      console.log('ERROR Deleting Todo', error);
+      res.sendStatus(500);
+    })
 });
 
 //PUT ROUTE
-router.put('/:id', (req,res) => {
+router.put('/:id', (req, res) => {
+  console.log(`PUT req to /todos`);
   let id = req.params.id;
   let todoStatus;
   //this allows statusBtn to toggle.
-  if(req.body.status === 'false'){
+  if (req.body.status === 'false') {
     todoStatus = true;
-  }else{
+  } else {
     todoStatus = false;
   }
-  console.log(todoStatus);
-  console.log(`updating todo ${id} with, ${todoStatus}`);
-  
+  // console.log(todoStatus);
+  // console.log(`updating todo ${id} with, ${todoStatus}`);
+
   let queryText = `UPDATE "todos"
                   SET "complete" = $1
                   WHERE "id" = $2;`;

@@ -1,9 +1,21 @@
-# Project Name
-
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+# weekend-sql-to-do-list
 
 ## Description
+_Duration: weekend project
 
-Your project description goes here. What problem did you solve? How did you solve it?
+This is a Javascript to do app. It allows users to add todos and displays it to a table. It also displays all stored todos on the server. Users can mark todos as complete and also remove them. 
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+## Installation
+1. Create a database named 'weekend-to-do-app'
+2. The queries in the database.sql will help you get set up
+3. Open your editor of choice and run 'npm install'
+4. Run 'npm start'
+5. Go to 'localhost:5000' in your browser to use the app
+
+## Built With
+Javascript
+Node
+Express
+jQuery
+postgreSQL
+Bootstrap
