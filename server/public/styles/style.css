@@ -31,3 +31,6 @@ thead * { margin: 0; padding: 0; border: 0 none; height: 0px; }
   padding: 1rem 0;
 } */
 
+.markComplete{
+  background-color: seagreen;
+}

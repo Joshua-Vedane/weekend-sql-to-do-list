@@ -93,6 +93,8 @@ function completeStatus(){
   }).catch(function(error){
     alert('error in updating song', error);
   });
+  //toggle display class on click. 
+  $(this).closest('tr').addClass("markComplete");
 };
 
 
@@ -107,6 +109,8 @@ function renderTodos(todos){
 
     //keep checked if true 
     if(todo.complete === true){
+      //for toggle class
+      $tr = $(`<tr class="markComplete" data-id=${todo.id}></td>`)
       $tr.append(`<td class="text-center" data-complete=${todo.complete}><input type="checkbox" name="completeStatus" id="completeStatus" checked ></td>`);
     }else {
       $tr.append(`<td class="text-center" data-complete=${todo.complete}><input type="checkbox" name="completeStatus" id="completeStatus"></td>`);
@@ -115,5 +119,4 @@ function renderTodos(todos){
     $tr.append(`<td class="text-center"><button class="btn btn-dark deleteBtn">DELETE</button></td>`);
     $('#todoList').append($tr);
   }
-
 }
